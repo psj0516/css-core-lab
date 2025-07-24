@@ -1,0 +1,292 @@
+body {
+	height: 100vh;
+	overflow: hidden;
+	background-image: linear-gradient(to top right, #3BE798, #7F6EB2);
+}
+
+.card {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #f5f5f566;
+	border-radius: 30px;
+	width: 300px;
+	backdrop-filter: blur(10px);
+}
+
+.basic-info {
+	border-radius: 30px;
+	padding: 25px;
+	position: relative;
+}
+
+.title .category,
+.title .info {
+	font-weight: 600;
+	font-size: x-small;
+}
+
+.title .name {
+	font-weight: bold;
+	font-size: large;
+	padding-bottom: 3px;
+}
+
+.card .img {
+	position: relative;
+	text-align: center;
+	transition: 1s;
+}
+
+.card .img img {
+	width: 100%;
+	transform: scale(1) rotate(20deg);
+	transition: 0.5s;
+	display: none;
+}
+
+.colors {
+	display: flex;
+	font-size: xx-small;
+	justify-content: center;
+	text-align: center;
+	transition: 1s;
+	transition-delay: 0.2s;
+}
+
+.colors label {
+	margin: 0 5px;
+}
+
+.colors label .ellipse {
+	margin-top: 20px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.img input:checked~img {
+	display: block;
+}
+
+.img input {
+	display: none;
+	position: absolute;
+}
+
+.card .img::before {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	content: "";
+	background-color: #e7e7e7;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	z-index: -2;
+	transition: 1s;
+}
+
+.card .img::after {
+	position: absolute;
+	width: 70%;
+	height: 40px;
+	border-radius: 50%;
+	content: "";
+	background-color: #000;
+	bottom: 0;
+	right: 30px;
+	z-index: -2;
+	opacity: 0.2;
+	filter: blur(10px);
+	transition: 0.5s;
+}
+
+.card:hover .img img {
+	transform: scale(1.1) rotate(30deg) translate(10px, -20px);
+}
+
+.card:hover .img::after {
+	width: 90%;
+}
+
+.mores {
+	padding-bottom: 30px;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	transition: 1s;
+}
+
+.text-yellow {
+	color: yellow;
+}
+
+.add-card label {
+	text-align: center;
+	width: max-content;
+	display: block;
+	margin: auto;
+	background-color: #ffffff55;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	transition: 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translate(0, 10px);
+	opacity: 0;
+}
+
+.card:hover .add-card label {
+	opacity: 1;
+	transform: translate(0, -10px);
+}
+
+.add-card .box {
+	position: absolute;
+	width: 180px;
+	height: 120px;
+	background-color: #F5AC2F;
+	z-index: 99;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 50%) scale(0);
+}
+
+.add-card .box::before {
+	position: absolute;
+	width: 100%;
+	height: 25%;
+	content: '';
+	bottom: 100%;
+	background-color: #E96E01;
+	clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+}
+
+.add-card .box::after {
+	position: absolute;
+	width: 100%;
+	height: 30%;
+	content: '';
+	top: 0;
+	left: 0;
+	background-image: linear-gradient(to top, #E96E0166, #F5AC2F);
+}
+
+input[name="add-card"][value="1"]:checked~.add-card .box {
+	transform: translate(-50%) scale(1);
+}
+
+input[name="add-card"][value="1"]:checked~.basic-info .img {
+	transform: translate(0, -100px) scale(1.3);
+}
+
+input[name="add-card"][value="1"]:checked~.basic-info .img::before {
+	opacity: 0;
+}
+
+input[name="add-card"][value="1"]:checked~.basic-info .colors {
+	transform: translate(0, -90px);
+}
+
+input[name="add-card"][value="1"]:checked~.basic-info .sizes {
+	transform: translate(0, -90px);
+	opacity: 1;
+	transition-delay: 0.3s;
+}
+
+.sizes {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	transition: 1s;
+	opacity: 0;
+}
+
+.sizes input {
+	display: none;
+}
+
+.sizes label {
+	display: flex;
+	width: 30px;
+	height: 30px;
+	background-color: #fff;
+	border-radius: 50%;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	transition: 0.5s;
+	font-family: monospace;
+}
+
+.sizes label:has(input:checked) {
+	background-color: #54BBA2;
+	color: #fff;
+}
+
+input[name="add-card"][value="2"]:checked~.add-card .box {
+	animation: effectBox 3s ease-in-out 1;
+}
+
+input[name="add-card"][value="2"]:checked~.basic-info .img {
+	animation: effectAddCardImg 3s ease-in-out 1;
+}
+
+input[name="add-card"][value="2"]:checked~.basic-info .img::before {
+	opacity: 1;
+	animation: effectOpacity 3s ease-in-out 1;
+}
+
+@keyframes effectBox {
+
+	0%,
+	20% {
+		transform: translate(-50%) scale(1);
+	}
+
+	30% {
+		transform: translate(-50%) scale(1.1);
+	}
+}
+
+@keyframes effectAddCardImg {
+	0% {
+		transform: translate(0, -100px) scale(1.3);
+	}
+
+	10% {
+		opacity: 1;
+		transform: translate(0, -100px) scale(1.3) rotate(20deg);
+	}
+
+	25% {
+		transform: translate(0, 300px) scale(.3) rotate(20deg);
+		opacity: 0;
+	}
+
+	70% {
+		opacity: 0;
+	}
+}
+
+@keyframes effectOpacity {
+	0% {
+		opacity: 0;
+	}
+
+	80% {
+		opacity: 0;
+	}
+}
+
+input[name="add-card"] {
+	display: none;
+}

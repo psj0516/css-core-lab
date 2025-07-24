@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+
+<body>
+	<div class="card">
+		<input type="radio" name="add-card" id="closeCard" value="0" checked>
+		<input type="radio" name="add-card" id="openCard" value="1">
+		<input type="radio" name="add-card" id="addCard" value="2">
+		<div class="basic-info">
+			<div class="title">
+				<div class="category">Nikki</div>
+				<div class="name">Super Runner</div>
+				<div class="info">New Products 2025</div>
+			</div>
+			<div class="img">
+				<div class="item">
+					<input type="radio" name="color" id="green">
+					<img src="green.png" alt="shoes image" />
+				</div>
+				<div class="item">
+					<input type="radio" name="color" id="black" checked>
+					<img src="black.png" alt="shoes image" />
+				</div>
+			</div>
+			<div class="colors">
+				<label for="green">
+					<div class="ellipse" style="background-color: #CADB6E;"></div>
+				</label>
+				<label for="black">
+					<div class="ellipse" style="background-color: #2B2B2B;"></div>
+				</label>
+			</div>
+			<div class="sizes">
+				<label for="closeCard">
+					<i class="fa-solid fa-xmark"></i>
+				</label>
+				<label>
+					<input type="radio" name="size" checked>
+					39
+				</label>
+				<label>
+					<input type="radio" name="size">
+					40
+				</label>
+				<label>
+					<input type="radio" name="size">
+					41
+				</label>
+				<label for="addCard">
+					<i class="fa-solid fa-check"></i>
+				</label>
+			</div>
+		</div>
+		<div class="mores">
+			<div class="price">$26.03</div>
+			<div class="start">
+				<i class="fa-regular fa-star text-yellow"></i>
+				<i class="fa-regular fa-star text-yellow"></i>
+				<i class="fa-regular fa-star text-yellow"></i>
+				<i class="fa-regular fa-star text-yellow"></i>
+				<i class="fa-regular fa-star"></i>
+			</div>
+		</div>
+		<div class="add-card">
+			<label for="openCard">
+				<i class="fa-solid fa-basket-shopping"></i>
+			</label>
+			<div class="box"></div>
+		</div>
+	</div>
+</body>
+
+</html>
